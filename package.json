@@ -1,0 +1,29 @@
+{
+  "name": "crud-demo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "array.prototype.flat": "^1.2.5",
+    "clone-deep": "^4.0.1",
+    "core-js": "^3.6.5",
+    "element-plus": "^2.1.7",
+    "mitt": "^3.0.0",
+    "tiny-emitter": "^2.1.0",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.17",
+    "@vue/cli-plugin-router": "~4.5.17",
+    "@vue/cli-plugin-vuex": "~4.5.17",
+    "@vue/cli-service": "~4.5.17",
+    "@vue/compiler-sfc": "^3.0.0",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2"
+  }
+}
