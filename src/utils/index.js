@@ -40,7 +40,7 @@ export function isString(value) {
 }
 
 export function isNull(value) {
-  return !value && value !==0;
+  return !value && value !== 0;
 }
 
 export function isEmpty(value) {
@@ -51,6 +51,22 @@ export function isEmpty(value) {
   if (isObject(value)) {
     return Object.keys(value).length === 0;
   }
+
+  return value === '' || value === undefined || value === null;
+}
+
+export function clone(obj) {
+  return Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj));
+}
+
+export function deepMerge(a, b) {
+  let k;
+  for (k in b) {
+    console.log(a[k], b[k]);
+    a[k] =
+      a[k] && a[k].toString() === '[object Object]' ? deepMerge(a[k], b[k]) : (a[k] = b[k]);
+  }
+  return a;
 }
 
 export { cloneDeep, flat };
