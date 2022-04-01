@@ -1,24 +1,72 @@
 <template>
-  <div id="app">
-    <h3 @click="demoClick">crud-demo</h3>
+  <div class="demo">
+    <cl-crud>
+      <el-row>
+        <cl-table
+          ref="table"
+          :border="false"
+          :columns="columns"
+          row-key="id"
+          @selection-change="onSelectionChange"
+        >
+          <template #column-name="{scope}"> ` {{ scope.row.name }} ` </template>
+
+					<template #slot-btn>
+						<el-button type="text" size="mini" @click="onClickTest">测试按钮</el-button>
+					</template>
+
+					<template #append>
+						<p style="text-align: center;margin: 10px">Append</p>
+					</template>
+
+					<template #empty>
+						自定义空态
+					</template>
+        </cl-table>
+      </el-row>
+    </cl-crud>
   </div>
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import { throttle } from "./utils";
+import { defineComponent, reactive } from 'vue';
+
+const userList = [];
 
 export default defineComponent({
   name: 'app',
   setup() {
-    const demoLog = () => {
-      console.log('This is demo click.');
-    }
+    const state = reactive({
+      columns: [
+        { type: 'selection', align: 'center', width: 60 },
+        {
+          label: '#',
+          type: 'index',
+          align: 'center'
+        },
+        {
+          label: '姓名',
+          prop: 'name'
+        },
+        {
+          label: '收入',
+          prop: 'price',
+          align: 'center'
+        },
+        {
+          type: 'op',
+          align: 'center',
+          layout: ['edit', 'delete', 'slot-btn']
+        }
+      ]
+    });
 
-    const demoClick = throttle(demoLog, 1000);
-
-    return {
-      demoClick
+    return state;
+  },
+  
+  methods: {
+    onSelectionChange(selection) {
+      console.log(selection);
     }
   }
 })
@@ -26,11 +74,16 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+html,
+body,
+#app,
+.demo {
+	height: 100%;
+	overflow: hidden;
+}
+
+* {
+	padding: 0;
+	margin: 0;
 }
 </style>

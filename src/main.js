@@ -6,6 +6,11 @@ import ElementPlus from 'element-plus';
 import locale from 'element-plus/lib/locale/lang/zh-cn';
 import 'element-plus/dist/index.css';
 
+// cl-crud-next
+import ClCrudNext from './index';
+import './assets/css/index.scss';
+
 createApp(App)
   .use(ElementPlus, { locale })
+  .use(ClCrudNext)
   .mount('#app');
