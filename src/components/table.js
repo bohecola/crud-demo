@@ -90,6 +90,17 @@ export default {
                               buttonText = '删除';
                               break;
                           }
+
+                          return (
+                            <el-button
+                              size="mini"
+                              type="text"
+                              onClick={() => {
+                                clickEvent(scope.row);
+                              }}>
+                              {buttonText}
+                            </el-button>
+                          );
                         }
                       } else {
                         // Use custom render
@@ -173,7 +184,7 @@ export default {
                         );
 
                         // Use el-tag
-                        return h(Eltag, data, {
+                        return h(ElTag, data, {
                           default() {
                             return data.label;
                           }
