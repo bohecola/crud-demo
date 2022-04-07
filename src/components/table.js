@@ -48,7 +48,7 @@ export default {
 
     // Render el-table-column
     renderColumn() {
-      const { getPromission, rowEdit, rowDelete } = inject('crud');
+      const { getPermission, rowEdit, rowDelete } = inject('crud');
 
       return this.columns
         .filter(e => !e.hidden)
@@ -73,7 +73,7 @@ export default {
                     return (item.layout || ['edit', 'delete']).map(vnode => {
                       if (['edit', 'update', 'delete'].includes(vnode)) {
                         // Get permission
-                        const perm = getPromission(vnode);
+                        const perm = getPermission(vnode);
 
                         if (perm) {
                           let clickEvent = () => { };
