@@ -34,7 +34,11 @@ export default {
       this.data = list;
     });
   },
-  mounted() {},
+	mounted() {
+		this.mitt.on("crud.edit", (data) => {
+			console.log(data);
+		});
+	},
   methods: {
     // Set sort and append to request params
     setDefaultSort() {
@@ -93,7 +97,7 @@ export default {
 
                           return (
                             <el-button
-                              size="mini"
+                              size="small"
                               type="text"
                               onClick={() => {
                                 clickEvent(scope.row);
@@ -329,7 +333,7 @@ export default {
         class="cl-table"
         ref="table"
         border
-        size="mini"
+        size="default"
         v-loading={loading}
         data={this.data}>
       </el-table>

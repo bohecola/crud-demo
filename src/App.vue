@@ -4,7 +4,7 @@
       <el-row>
         <cl-table
           ref="table"
-          :border="false"
+          :border="true"
           :columns="columns"
           row-key="id"
           @selection-change="onSelectionChange"
@@ -12,7 +12,7 @@
           <template #column-name="{scope}"> ` {{ scope.row.name }} ` </template>
 
 					<template #slot-btn>
-						<el-button type="text" size="mini" @click="onClickTest">测试按钮</el-button>
+						<el-button type="text" size="small" @click="onClickTest">测试按钮</el-button>
 					</template>
 
 					<template #append>
@@ -109,6 +109,14 @@ const testService = {
         total: 5
       }
     });
+  },
+  delete: d => {
+    console.log('POST[delete]', d);
+    return Promise.resolve();
+  },
+  update: d => {
+    console.log('POST[update]', d);
+    return Promise.resolve();
   }
 }
 
@@ -150,6 +158,9 @@ export default defineComponent({
     },
     onSelectionChange(selection) {
       console.log(selection);
+    },
+    onClickTest() {
+      console.log(`test btn click`);
     }
   }
 })
