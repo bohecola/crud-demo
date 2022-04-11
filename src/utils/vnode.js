@@ -25,7 +25,7 @@ const parse_jsx = (vnode, options) => {
 
 	// Use component
 	if (vnode.render) {
-		const { component } = inject('op')
+		const { component } = inject('op');
 
 		if (!ctx.$root.$options.components[vnode.name]) {
 			component(vnode.name, data);

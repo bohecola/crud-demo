@@ -32,14 +32,14 @@
 import { defineComponent, reactive } from 'vue';
 
 const userList = [
-  {
-    id: 1,
-    name: '刘一',
-    process: 42.2,
-    createTime: '2019年09月02日',
-    price: 75.99,
-    salesRate: 52.2,
-    status: 1,
+	{
+		id: 1,
+		name: "刘一",
+		process: 42.2,
+		createTime: "2019年09月02日",
+		price: 75.99,
+		salesRate: 52.2,
+		status: 1,
 		images: ["https://cool-comm.oss-cn-shenzhen.aliyuncs.com/show/imgs/chat/avatar/1.jpg"],
 		children: [
 			{
@@ -55,8 +55,8 @@ const userList = [
 				]
 			}
 		]
-  },
-  {
+	},
+	{
 		id: 2,
 		name: "陈二",
 		process: 35.2,
@@ -131,10 +131,15 @@ export default defineComponent({
           type: 'index',
           align: 'center'
         },
-        {
-          label: '姓名',
-          prop: 'name'
-        },
+				{
+					label: '多级表头',
+					children: [
+						{
+							label: '姓名',
+							prop: 'name'
+						}
+					]
+				},
         {
           label: '收入',
           prop: 'price',

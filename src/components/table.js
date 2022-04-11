@@ -1,6 +1,6 @@
 import { renderNode } from '@/utils/vnode';
 import { isNull, cloneDeep } from '@/utils';
-import { h, inject, nextTick } from 'vue';
+import { Fragment, h, inject, nextTick } from 'vue';
 
 export default {
   name: 'cl-table',
@@ -137,7 +137,7 @@ export default {
                 default: scope => {
                   // If children
                   if (item.children) {
-                    return <div>{item.children.map(deep)}</div>;
+                    return <>{item.children.map(deep)}</>;
                   }
 
                   // Scope data
