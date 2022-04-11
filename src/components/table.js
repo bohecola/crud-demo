@@ -1,6 +1,6 @@
 import { renderNode } from '@/utils/vnode';
 import { isNull, cloneDeep } from '@/utils';
-import { Fragment, h, inject, nextTick } from 'vue';
+import { h, inject, nextTick } from 'vue';
 
 export default {
   name: 'cl-table',
