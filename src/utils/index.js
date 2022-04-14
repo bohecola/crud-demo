@@ -62,7 +62,6 @@ export function clone(obj) {
 export function deepMerge(a, b) {
   let k;
   for (k in b) {
-    console.log(a[k], b[k]);
     a[k] =
       a[k] && a[k].toString() === '[object Object]' ? deepMerge(a[k], b[k]) : (a[k] = b[k]);
   }
